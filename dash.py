@@ -18,6 +18,7 @@ if 'paisComparacao' not in st.session_state:
     ResetFiltrosComparacao()
 
 st.title("Doação de Órgãos no Mundo")
+
 tab1, tab2 = st.tabs(["Geral", "Comparação"])
 
 with tab1:
