@@ -57,9 +57,10 @@ def clear_number(number):
     print("Error: ", number)
     return number
 
-# @st.cache_data
+@st.cache_data
 def lerDados():
-    df = pd.read_csv("dados.csv", header='infer', sep=';')
+    # df = pd.read_csv("dados.csv", header='infer', sep=';')
+    df = pd.read_csv("https://raw.githubusercontent.com/data-beam/ec2023/main/dados.csv", header='infer', sep=';')
     df.fillna(value=0, inplace=True)
 
     df_final = df[['REPORTYEAR', 'REGION', 'COUNTRY', 'POPULATION', 'TOTAL Actual DD', 'TOTAL Kidney Tx', 'TOTAL Liver TX', 'Total Heart TX', 'TOTAL Lung Tx']]
@@ -110,7 +111,7 @@ if 'pais' not in st.session_state or 'ano' not in st.session_state:
     reset_filtros()
 
 st.title("Doação de Órgãos no Mundo")
-col1, col2, col3 = st.columns([0.1, 0.7, 0.2])
+col1, col2, col3 = st.columns([0.2, 0.6, 0.2])
 
 periodos = df['Ano'].unique().tolist()
 periodos.sort(reverse=True)
